@@ -8,8 +8,8 @@
   --navy: #0b1c35;
   --navy-light: #122240;
   --orange: #f9de16;
-  --orange-dark: #f9de16;;
-  --orange-glow: rgba(249, 115, 22, 0.15);
+  --orange-dark: #e5ca00;
+  --orange-glow: rgba(249, 222, 22, 0.15);
   --white: #ffffff;
   --off-white: #f8fafc;
   --gray-100: #f1f5f9;
@@ -107,14 +107,14 @@ p {
 
 .btn-primary {
   background: var(--orange);
-  color: var(--white);
+  color: var(--navy);
   border-color: var(--orange);
 }
 .btn-primary:hover {
   background: var(--orange-dark);
   border-color: var(--orange-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(249,115,22,0.35);
+  box-shadow: 0 8px 24px rgba(249,222,22,0.35);
 }
 
 .btn-outline {

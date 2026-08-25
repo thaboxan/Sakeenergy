@@ -117,17 +117,6 @@
   gap: 32px;
   flex-wrap: wrap;
 }
-.not-sure-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: var(--orange-glow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--orange);
-}
 .not-sure-inner h2 {
   margin-bottom: 8px;
   font-size: 1.5rem;
