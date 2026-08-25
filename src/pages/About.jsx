@@ -53,7 +53,7 @@ export default function About() {
         description="Founded in 2016 by Nthabiseng Serite, Sake Energy Solutions is a pan-African engineering company with branches in South Africa, Tanzania, and Zambia. ISO 9001 & ISO 45001 certified."
         path="/about"
       />
-      {/* PAGE HERO */}}
+      {/* PAGE HERO */}
       <section className="page-hero">
         <div className="container">
           <span className="eyebrow fade-up">Our Story</span>
