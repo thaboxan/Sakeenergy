@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './About.css'
 import '../index.css'
 import logoAccred from '../assets/Logo with Accreditations.png'
+import SEO from '../components/SEO'
 
 const values = [
   {
@@ -47,7 +48,12 @@ const milestones = [
 export default function About() {
   return (
     <>
-      {/* PAGE HERO */}
+      <SEO
+        title="About Us | Engineering Excellence Since 2016"
+        description="Founded in 2016 by Nthabiseng Serite, Sake Energy Solutions is a pan-African engineering company with branches in South Africa, Tanzania, and Zambia. ISO 9001 & ISO 45001 certified."
+        path="/about"
+      />
+      {/* PAGE HERO */}}
       <section className="page-hero">
         <div className="container">
           <span className="eyebrow fade-up">Our Story</span>

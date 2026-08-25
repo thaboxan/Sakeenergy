@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Contact.css'
 import '../index.css'
+import SEO from '../components/SEO'
 
 const contactInfo = [
   {
@@ -86,6 +87,11 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact Us | Get a Free Consultation"
+        description="Contact Sake Energy Solutions at our Sasolburg head office. Call +27 66 477 8078 or email sales@sakeenergy.co.za. We serve clients across South Africa and Africa."
+        path="/contact"
+      />
       {/* PAGE HERO */}
       <section className="page-hero">
         <div className="container">

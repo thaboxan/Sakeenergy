@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Solutions.css'
 import '../index.css'
+import SEO from '../components/SEO'
 
 const categories = ['All', 'Industrial', 'Energy', 'Safety & Testing', 'Project Services']
 
@@ -126,7 +127,12 @@ export default function Solutions() {
 
   return (
     <>
-      {/* PAGE HERO */}
+      <SEO
+        title="Engineering Solutions & Services"
+        description="Explore Sake Energy's 14 comprehensive engineering services: industrial automation, renewable energy & backup power, EPC, valve supply & repair, condition monitoring, fire suppression, instrument calibration, and more across Africa."
+        path="/solutions"
+      />
+      {/* PAGE HERO */}}
       <section className="page-hero">
         <div className="container">
           <span className="eyebrow fade-up">What We Offer</span>
