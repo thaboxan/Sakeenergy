@@ -97,7 +97,7 @@ export default function Home() {
         path="/"
         description="Sake Energy Solutions delivers industrial automation, renewable energy, EPC, and engineering services across Africa. ISO 9001 & ISO 45001 certified. Headquartered in Sasolburg, South Africa."
       />
-      {/* HERO */}}
+      {/* HERO */}
       <section className="hero">
         <div className="hero__slideshow">
           {heroSlides.map((url, i) => (
