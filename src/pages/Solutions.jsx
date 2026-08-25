@@ -132,7 +132,7 @@ export default function Solutions() {
         description="Explore Sake Energy's 14 comprehensive engineering services: industrial automation, renewable energy & backup power, EPC, valve supply & repair, condition monitoring, fire suppression, instrument calibration, and more across Africa."
         path="/solutions"
       />
-      {/* PAGE HERO */}}
+      {/* PAGE HERO */}
       <section className="page-hero">
         <div className="container">
           <span className="eyebrow fade-up">What We Offer</span>
