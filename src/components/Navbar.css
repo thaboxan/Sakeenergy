@@ -9,10 +9,14 @@
 }
 
 .navbar--scrolled {
-  background: rgba(11, 28, 53, 0.97);
-  backdrop-filter: blur(12px);
+  background: rgba(11, 28, 53, 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   padding: 12px 0;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(249, 222, 22, 0.18);
+  border-bottom: 1px solid rgba(249, 222, 22, 0.1);
 }
 
 .navbar__inner {
@@ -50,21 +54,45 @@
 }
 
 .navbar__nav a:not(.navbar__cta) {
+  position: relative;
+  overflow: hidden;
   padding: 8px 14px;
   border-radius: var(--radius-sm);
   font-size: 0.9375rem;
   font-weight: 500;
   color: rgba(255,255,255,0.8);
   text-decoration: none;
-  transition: color var(--transition), background var(--transition);
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
 }
-.navbar__nav a:not(.navbar__cta):hover,
-.navbar__nav a.active:not(.navbar__cta) {
-  color: var(--white);
-  background: rgba(255,255,255,0.08);
+/* sweeping glass shimmer across each nav pill */
+.navbar__nav a:not(.navbar__cta)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 65%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  transition: background-position 0.5s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.navbar__nav a:not(.navbar__cta):hover {
+  color: var(--orange);
+  background: rgba(249, 222, 22, 0.08);
+  transform: translateY(-1px);
+  text-shadow: 0 0 14px rgba(249, 222, 22, 0.55);
+}
+.navbar__nav a:not(.navbar__cta):hover::after {
+  background-position: 180% 0;
 }
 .navbar__nav a.active:not(.navbar__cta) {
   color: var(--orange);
+  text-shadow: 0 0 10px rgba(249, 222, 22, 0.35);
 }
 .navbar__cta {
   margin-left: 12px;
