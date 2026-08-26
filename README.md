@@ -2,8 +2,9 @@
 
 Marketing website for **Sake Energy Solutions**, an industrial automation and renewable energy engineering company operating across South Africa and the wider African continent. Built as a fast, single-page React application with client-side routing, SEO metadata, and a responsive UI.
 
-**Live site:** https://www.sakeenergy.co.za
-**Presentation/demo deployment:** https://sakeenergy.onrender.com/
+**Deployment Demo site:** https://sakeenergy.onrender.com/ 
+**site being updated:** https://sakeenergy.co.za/
+
 
 ## Tech Stack
 
