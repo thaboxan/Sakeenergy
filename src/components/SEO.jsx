@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
 const SITE_URL = 'https://www.sakeenergy.co.za'
-const DEFAULT_IMAGE = 'https://sakeenergy.co.za/wp-content/uploads/2023/10/ezgif.com-gif-maker.webp'
+const DEFAULT_IMAGE = `${SITE_URL}/logo-og.png`
 
 export default function SEO({ title, description, path = '/', image = DEFAULT_IMAGE }) {
   const fullTitle = title
