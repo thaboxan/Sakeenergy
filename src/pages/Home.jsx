@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
 import '../index.css'
 import SEO from '../components/SEO'
+import eskomLogo from '../assets/eskom-hld-soc-seeklogo.svg'
+import arcelorMittalLogo from '../assets/ArcelorMittal_idtAAJr4-U_0.svg'
 
 const stats = [
   { value: '20+', label: 'Years of Experience' },
@@ -79,13 +82,15 @@ const phases = [
   },
 ]
 
+// Free Client ID from https://developers.brandfetch.com/register — set VITE_BRANDFETCH_CLIENT_ID in .env
+const BRANDFETCH_CLIENT_ID = import.meta.env.VITE_BRANDFETCH_CLIENT_ID
+
 const clients = [
-  { name: 'Sasol',          domain: 'sasol.com' },
+  { name: 'Sasol', domain: 'sasol.com' },
   { name: 'Anglo American', domain: 'angloamerican.com' },
-  { name: 'Eskom',          domain: 'eskom.co.za' },
-  { name: 'ArcelorMittal', domain: 'arcelormittal.com' },
-  { name: 'Kumba Iron Ore', domain: 'kumba.co.za' },
-  { name: 'Transnet',       domain: 'transnet.net' },
+  { name: 'Eskom', logo: eskomLogo },
+  { name: 'ArcelorMittal', logo: arcelorMittalLogo },
+  { name: 'Transnet', domain: 'transnet.net' },
 ]
 
 const heroSlides = [
@@ -97,6 +102,8 @@ const heroSlides = [
 ]
 
 export default function Home() {
+  const [failedLogos, setFailedLogos] = useState(() => new Set())
+
   return (
     <>
       <SEO
@@ -282,18 +289,30 @@ export default function Home() {
         <div className="container">
           <p className="clients-label">Trusted by leading African industries</p>
           <div className="clients-track">
-            {clients.map(c => (
-              <div key={c.name} className="client-logo-wrap">
-                <img
-                  src={`https://logo.clearbit.com/${c.domain}`}
-                  alt={c.name}
-                  className="client-logo-img"
-                  loading="lazy"
-                  onError={e => { e.currentTarget.style.display = 'none' }}
-                />
-                <span className="client-logo-name">{c.name}</span>
-              </div>
-            ))}
+            {clients.map(c => {
+              const showBrandfetch = !c.logo && BRANDFETCH_CLIENT_ID && !failedLogos.has(c.name)
+              return (
+                <div key={c.name} className="client-logo-wrap">
+                  {c.logo ? (
+                    <img src={c.logo} alt={c.name} className="client-logo-img" loading="lazy" />
+                  ) : showBrandfetch ? (
+                    <img
+                      src={`https://cdn.brandfetch.io/${c.domain}?c=${BRANDFETCH_CLIENT_ID}`}
+                      alt={c.name}
+                      className="client-logo-img"
+                      loading="lazy"
+                      onError={() => setFailedLogos(prev => new Set(prev).add(c.name))}
+                      onLoad={e => {
+                        // Brandfetch returns a tiny generic placeholder (not an error) when it has no real logo
+                        if (e.currentTarget.naturalWidth < 100) setFailedLogos(prev => new Set(prev).add(c.name))
+                      }}
+                    />
+                  ) : (
+                    <span className="client-logo-name">{c.name}</span>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
