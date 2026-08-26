@@ -17,6 +17,7 @@ const services = [
     ),
     title: 'Industrial Automation',
     desc: 'Replace tedious manual tasks with precise, efficient automated solutions using the latest technology.',
+    img: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80',
   },
   {
     icon: (
@@ -24,6 +25,7 @@ const services = [
     ),
     title: 'Renewable Energy',
     desc: 'Sustainable energy solutions and reliable backup systems that keep your operations running, always.',
+    img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80',
   },
   {
     icon: (
@@ -31,6 +33,7 @@ const services = [
     ),
     title: 'Condition Monitoring',
     desc: 'Stay ahead of potential failures with real-time insights and predictive maintenance systems.',
+    img: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80',
   },
   {
     icon: (
@@ -38,6 +41,7 @@ const services = [
     ),
     title: 'EPC & Project Management',
     desc: 'End-to-end engineering, procurement, and construction services delivered on time and within budget.',
+    img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
   },
   {
     icon: (
@@ -45,6 +49,7 @@ const services = [
     ),
     title: 'Valve Supply & Repair',
     desc: 'Excellence in valve supply and repair services – durability, functionality, and unwavering support.',
+    img: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=800&q=80',
   },
   {
     icon: (
@@ -52,6 +57,7 @@ const services = [
     ),
     title: 'Instrument Testing',
     desc: 'Guaranteed accuracy in all measurements through professional testing and calibration services.',
+    img: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=800&q=80',
   },
 ]
 
@@ -189,10 +195,15 @@ export default function Home() {
           </div>
           <div className="grid-3 services-grid">
             {services.map(s => (
-              <div key={s.title} className="card service-card">
-                <div className="icon-circle">{s.icon}</div>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
+              <div key={s.title} className="service-card">
+                <div className="service-card__media">
+                  <img src={s.img} alt={s.title} loading="lazy" />
+                  <div className="service-card__icon">{s.icon}</div>
+                </div>
+                <div className="service-card__body">
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
